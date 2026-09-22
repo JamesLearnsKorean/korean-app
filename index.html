@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Korean learning app</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main id="app">
+        <!-- 1. Home Screen (Folder View) -->
+        <section id="screen-home" class="screen active">
+            <header class="cozy-header">
+                <div id="time-graphic" class="cozy-graphic">☁️</div>
+                <h2 id="greeting" class="subheading">좋은 아침이에요</h2>
+                <h1 class="heading">My Library</h1>
+            </header>
+            <div id="folder-grid" class="folder-grid">
+                <!-- Folders injected via JS -->
+            </div>
+        </section>
+
+        <!-- 2. Sub-Menu Screen (Batch View) -->
+        <section id="screen-batches" class="screen hidden">
+            <header class="app-header">
+                <button id="btn-back-folders" class="icon-btn">
+                    <input type="checkbox" switch class="haptic-hack">‹ Folders
+                </button>
+                <h1 id="folder-title" class="heading mt-2">Folder</h1>
+            </header>
+
+            <div id="tense-toggle-container" class="hidden mt-4 mb-2">
+                <div class="segmented-control" data-active="0">
+                    <div class="segment-slider"></div>
+                    <label class="segment active" data-idx="0"><input type="radio" name="tense" value="0" checked>Dict</label>
+                    <label class="segment" data-idx="1"><input type="radio" name="tense" value="2">Present</label>
+                    <label class="segment" data-idx="2"><input type="radio" name="tense" value="3">Past</label>
+                    <label class="segment" data-idx="3"><input type="radio" name="tense" value="4">Future</label>
+                </div>
+            </div>
+
+            <div id="batch-list" class="ios-list-group mt-2">
+                <!-- Batches injected via JS -->
+            </div>
+        </section>
+
+        <!-- 3. Speed Selection Screen -->
+        <section id="screen-speed" class="screen hidden">
+            <header class="app-header">
+                <button id="btn-back-batches" class="icon-btn">
+                    <input type="checkbox" switch class="haptic-hack">‹ Batches
+                </button>
+                <h1 class="heading mt-2">Pacing</h1>
+            </header>
+            <div class="ios-list-group mt-4">
+                <label class="list-item speed-btn" data-speed="6000">
+                    <input type="checkbox" switch class="haptic-hack">
+                    <div class="item-icon" style="font-size: 1.5rem; background: transparent;">☕️</div>
+                    <div class="item-content"><div class="item-info"><span class="item-title">Chill</span><span class="item-meta">6.0s per word</span></div></div>
+                </label>
+                <label class="list-item speed-btn" data-speed="4000">
+                    <input type="checkbox" switch class="haptic-hack">
+                    <div class="item-icon" style="font-size: 1.5rem; background: transparent;">⚡️</div>
+                    <div class="item-content"><div class="item-info"><span class="item-title">Standard</span><span class="item-meta">4.0s per word</span></div></div>
+                </label>
+                <label class="list-item speed-btn" data-speed="2000">
+                    <input type="checkbox" switch class="haptic-hack">
+                    <div class="item-icon" style="font-size: 1.5rem; background: transparent;">🔥</div>
+                    <div class="item-content no-border"><div class="item-info"><span class="item-title">Blitz</span><span class="item-meta">2.0s per word</span></div></div>
+                </label>
+            </div>
+        </section>
+
+        <!-- 4. Quiz Screen -->
+        <section id="screen-quiz" class="screen hidden">
+            <div class="quiz-header" style="position: relative; width: 100%; display: flex; justify-content: center;">
+                <button id="btn-quit-quiz" class="icon-btn" style="position: absolute; left: 0; top: -2px; font-size: 1.2rem;">
+                    <input type="checkbox" switch class="haptic-hack">✕
+                </button>
+                <div id="progress-text">1/10</div>
+                <div id="timer-track" style="width: 100%; position: absolute; top: 30px;"><div id="timer-fill"></div></div>
+            </div>
+            <div id="card-display">
+                <div class="word-container">
+                    <h1 id="korean-word"></h1>
+                    <button id="btn-replay-audio" class="icon-btn replay-btn">
+                        <input type="checkbox" switch class="haptic-hack">🔊
+                    </button>
+                </div>
+            </div>
+            <div id="options-grid"></div>
+        </section>
+
+        <!-- 5. Results Screen -->
+        <section id="screen-result" class="screen hidden">
+            <div class="result-card">
+                <div id="result-trophy" class="trophy">✨</div>
+                <h2 id="result-subheading" class="subheading">Batch Complete</h2>
+                <h1 id="score-display">0/10</h1>
+                
+                <div id="result-word-list" class="ios-list-group mt-4 mb-4 text-left">
+                    <!-- Injected via JS -->
+                </div>
+
+                <div class="result-actions">
+                    <label id="btn-retry" class="action-btn primary"><input type="checkbox" switch class="haptic-hack">Retry Batch</label>
+                    <label id="btn-home" class="action-btn secondary"><input type="checkbox" switch class="haptic-hack">Return Home</label>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
